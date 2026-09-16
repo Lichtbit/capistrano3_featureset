@@ -121,28 +121,6 @@ namespace :featureset do
   end
 end
 
-namespace :load do
-  task :defaults do
-    rsync_excludes = %w[.git* spec rspec test Capfile config/deploy config/deploy.rb]
-    set :rsync_options, "-azc --delete --delete-excluded --exclude #{rsync_excludes.join(' --exclude ')}"
-
-    set :rvm_type, :user
-
-    set :enable_delayed_job, false
-    set :enable_solid_queue, false
-    set :enable_whenever, false
-    set :enable_unicorn, false
-    set :enable_puma, false
-
-    set :systemd_usage, true
-
-    append :linked_dirs, 'public/uploads'
-    append :linked_dirs, 'private'
-    append :linked_dirs, 'log'
-    set :more_linked_dirs, 'tmp/pids' => 'pids'
-  end
-end
-
 before 'deploy:migrate', 'featureset:db_load_schema' unless ENV['FIRST_DEPLOYMENT'].nil?
 after 'deploy:publishing', 'featureset:puma_reload'
 after 'deploy:publishing', 'featureset:unicorn_upgrade'

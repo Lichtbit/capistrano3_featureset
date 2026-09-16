@@ -6,3 +6,4 @@
 /pkg/
 /spec/reports/
 /tmp/
+/capistrano3_featureset-*.gem

@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'capistrano3_featureset'
-  spec.version       = '1.0.0'
+  spec.version       = '1.1.0'
   spec.authors       = ['Georg Limbach', 'Tom Armitage', 'Stefan Daschek']
   spec.email         = ['georg.limbach@lichtbit.com']
 
@@ -18,7 +18,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'capistrano', '~> 3.0'
   spec.add_dependency 'capistrano-rails'
-  spec.add_dependency 'capistrano-rvm'
   spec.add_dependency 'ed25519' #  to use modern ssh key ciphers
   spec.add_dependency 'bcrypt_pbkdf' #  to use modern ssh key ciphers
 end
