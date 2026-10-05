@@ -25,6 +25,8 @@ namespace :load do
     set :rsync_options, "-azc --delete --delete-excluded --exclude #{rsync_excludes.join(' --exclude ')}"
 
     set :version_manager, 'mise'
+    set :mise_path, "/usr/bin/mise"
+
     set :enable_delayed_job, false
     set :enable_solid_queue, false
     set :enable_whenever, false

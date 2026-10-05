@@ -38,6 +38,7 @@ set :deploy_to, '/srv/application-name'
 set :ruby_version, '4.0.1'
 
 # set :version_manager, 'rvm' # default is mise
+# set :mise_path, '~/.local/bin/mise' # default is /usr/bin/mise (deb package)
 # set :enable_delayed_job, false # default is false
 # set :enable_solid_queue, false # default is false
 # set :enable_whenever, false # default is false
@@ -48,6 +49,14 @@ set :ruby_version, '4.0.1'
 
 
 # Changelog
+
+## [1.2.0] - 2026-10-05
+
+### Changed
+
+* `mise_path` is now a regular default setting and can be overridden per deployment.
+* The default `mise_path` is now `/usr/bin/mise` (Debian package) instead of `~/.local/bin/mise`.
+  Set `set :mise_path, '~/.local/bin/mise'` to keep the previous behaviour.
 
 ## [1.1.0] - 2026-09-16
 

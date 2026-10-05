@@ -7,7 +7,7 @@ namespace :version_manager do
     on roles(fetch(:ruby_roles, :all)) do
       if fetch(:version_manager) == 'mise'
 
-        # chcek ruby version
+        # check ruby version
         ruby_version = fetch(:ruby_version)
         installed_rubies = capture(:mise, 'list', 'ruby', '--installed')
         unless installed_rubies.include?(ruby_version)
@@ -60,8 +60,6 @@ namespace :version_manager do
 
       SSHKit.config.default_env.merge!(path: "/home/#{fetch(:application)}/.local/bin:$PATH")
       SSHKit.config.default_env.merge!(mise_config_file: "/home/#{fetch(:application)}/#{fetch(:application)}.mise.toml")
-
-      set :mise_path, "~/.local/bin/mise"
 
       SSHKit.config.command_map[:mise] = fetch(:mise_path)
 
